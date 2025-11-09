@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlpcj8bp6bw0g"]
+
+[ext_resource type="Script" uid="uid://benb5xmgv76do" path="res://script/bird.gd" id="1_8vsa7"]
+[ext_resource type="Texture2D" uid="uid://ctvtj36q0jwi5" path="res://airplane assets/Drawing 1.png" id="2_8vsa7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j8m0"]
+atlas = ExtResource("2_8vsa7")
+region = Rect2(0, 0, 121, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_586km"]
+atlas = ExtResource("2_8vsa7")
+region = Rect2(121, 0, 121, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1efg"]
+atlas = ExtResource("2_8vsa7")
+region = Rect2(242, 0, 121, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61k8b"]
+atlas = ExtResource("2_8vsa7")
+region = Rect2(363, 0, 121, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vsa7"]
+atlas = ExtResource("2_8vsa7")
+region = Rect2(0, 80, 121, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61k8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j8m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_586km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1efg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61k8b")
+}],
+"loop": true,
+"name": &"airplane_Fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vsa7")
+}],
+"loop": true,
+"name": &"die_airplane",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bq55c"]
+radius = 11.0
+height = 94.0
+
+[node name="airplane" type="CharacterBody2D"]
+script = ExtResource("1_8vsa7")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_61k8b")
+animation = &"die_airplane"
+autoplay = "airplane_Fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bq55c")

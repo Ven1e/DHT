@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvophb0coki54"]
+
+[ext_resource type="Script" uid="uid://dequs6aveuh2r" path="res://script/area_2d.gd" id="1_ci2em"]
+[ext_resource type="Texture2D" uid="uid://bf6kn5ff01rk5" path="res://icon.svg" id="2_38db1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l1lp"]
+size = Vector2(112, 128)
+
+[node name="die_test" type="Area2D"]
+script = ExtResource("1_ci2em")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_38db1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2l1lp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
