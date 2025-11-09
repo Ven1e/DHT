@@ -1,4 +1,7 @@
 # DHT
 
 How to download?
-go to ñe
+
+go to Releases
+
+click le
