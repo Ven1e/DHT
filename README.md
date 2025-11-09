@@ -4,4 +4,6 @@ How to download?
 
 go to Releases
 
-click le
+click Latest 
+
+download DHT.apk
